@@ -12,11 +12,11 @@ import { Grid, Slider } from "@material-ui/core";
 import { useDataLayerValue } from "./DataLayer";
 
 function Footer({ spotify }) {
-  const [{ token, item, playing }, dispatch] = useDataLayerValue();
+  const [{ token, item, playing, shuffle }, dispatch] = useDataLayerValue();
 
   useEffect(() => {
     spotify.getMyCurrentPlaybackState().then((r) => {
-      console.log(r);
+      //console.log("R", r);
 
       dispatch({
         type: "SET_PLAYING",
@@ -73,6 +73,15 @@ function Footer({ spotify }) {
       });
     });
   };
+
+  const setShuffle = () => {
+    if (shuffle) {
+      spotify.setShuffle(false)
+    }else {
+      spotify.setShuffle(true)
+    }
+    
+  }
 
   return (
     <div className="footer">

@@ -8,10 +8,11 @@ export const initialState = {
   top_artists: null,
   playing: false,
   item: null,
+  shuffle: false,
 };
 
 const reducer = (state, action) => {
-  console.log(action);
+  console.log("action: ", action);
   switch (action.type) {
     case "SET_USER":
       return {
@@ -59,6 +60,11 @@ const reducer = (state, action) => {
       return {
         ...state,
         playlists: action.playlists,
+      };
+
+    case "SET_SHUFFLE":
+      return {
+        ...state,
       };
     default:
       return state;

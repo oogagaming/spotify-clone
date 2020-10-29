@@ -6,7 +6,7 @@ import { useDataLayerValue } from './DataLayer';
 function SongRow({ track, playSong }) {
 
   const [{ playlists }, dispatch] = useDataLayerValue();
-  console.log(track);
+  //console.log("Track: ", track);
 
   // Song Duration
   var minutes = Math.floor(track.duration_ms / 60000);
